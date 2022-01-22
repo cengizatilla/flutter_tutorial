@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
               });
             }
           },
-          type: StepperType.horizontal,
+          type: StepperType.vertical,
           steps: getSteps(),
         ),
       ),

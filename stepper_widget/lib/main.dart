@@ -41,27 +41,32 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Stepper(
-        currentStep: currentStep,
-        onStepContinue: () {
-          if (currentStep < 3) {
-            setState(() {
-              currentStep += 1;
-            });
-          }
-        },
-        onStepTapped: (step)=>setState(() {
-          currentStep = step;
-        }),
-        onStepCancel: () {
-          if (currentStep >= 0) {
-            setState(() {
-              currentStep -= 1;
-            });
-          }
-        },
-        type: StepperType.horizontal,
-        steps: getSteps(),
+      body: Theme(
+        data: Theme.of(context).copyWith(
+          colorScheme: const ColorScheme.light(primary: Colors.red)
+        ),
+        child: Stepper(
+          currentStep: currentStep,
+          onStepContinue: () {
+            if (currentStep < 3) {
+              setState(() {
+                currentStep += 1;
+              });
+            }
+          },
+          onStepTapped: (step)=>setState(() {
+            currentStep = step;
+          }),
+          onStepCancel: () {
+            if (currentStep >= 0) {
+              setState(() {
+                currentStep -= 1;
+              });
+            }
+          },
+          type: StepperType.horizontal,
+          steps: getSteps(),
+        ),
       ),
     );
   }

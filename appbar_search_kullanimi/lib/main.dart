@@ -29,12 +29,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool isSearch = false;
+  bool isSearch = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: isSearch
+              ? Text(widget.title)
+              : TextField(
+                  decoration: InputDecoration(hintText: 'Ara...',hintStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                  onChanged: (searchValue) {
+                    print(searchValue);
+                  },
+                ),
+          actions: [
+            isSearch
+                ? IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isSearch = false;
+                      });
+                    },
+                    icon: const Icon(Icons.search))
+                : IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isSearch = true;
+                      });
+                    },
+                    icon: const Icon(Icons.cancel))
+          ],
         ),
         body: const Center(
           child: Text('AAA'),

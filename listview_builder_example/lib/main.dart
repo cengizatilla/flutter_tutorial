@@ -41,21 +41,17 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView.builder(
         itemCount: ulkeler.length,
         itemBuilder: (context,indeks){
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: SizedBox(
-                height: 50,
-                child: Row(
-                  children: [
-                    Text(ulkeler[indeks])
-                  ],
-                ),
-              ),
-            ),
+          return ListTile(
+            leading: const Icon(Icons.star),
+            title: Text(ulkeler[indeks]),
+            subtitle: const Text('sub title ...'),
+            trailing:const Icon(Icons.arrow_right,),
+            onTap: (){
+              print('AAA');
+            },
           );
-        },
-      )
+        }
+      ),
     );
   }
 }

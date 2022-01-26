@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -34,36 +35,47 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: isSearch
-              ? Text(widget.title)
-              : TextField(
-                  decoration: InputDecoration(hintText: 'Ara...',hintStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                  onChanged: (searchValue) {
-                    print(searchValue);
-                  },
-                ),
-          actions: [
-            isSearch
-                ? IconButton(
-                    onPressed: () {
-                      setState(() {
-                        isSearch = false;
-                      });
-                    },
-                    icon: const Icon(Icons.search))
-                : IconButton(
-                    onPressed: () {
-                      setState(() {
-                        isSearch = true;
-                      });
-                    },
-                    icon: const Icon(Icons.cancel))
-          ],
+          title: const Text('Card Kullanımı'),
         ),
-        body: const Center(
-          child: Text('AAA'),
-        ));
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 300,
+              child: Card(
+                color: Colors.deepPurpleAccent,
+                elevation: 10.0,
+                shadowColor: Colors.deepPurpleAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(20),
+                        topLeft: Radius.circular(20)),
+                    side: BorderSide(width: 1, color: Colors.pinkAccent)),
+                child: Center(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Toplam Puan : 20',style: TextStyle(color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.bold),),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.star,color: Colors.amber,),
+                            Text("150",style: TextStyle(color: Colors.white, fontSize: 40.0, fontWeight: FontWeight.bold),)
+                          ],
+                        ),
+                      )
+                      
+                      ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        )));
   }
 }

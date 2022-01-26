@@ -37,9 +37,64 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: const Text('Card Kullanımı'),
         ),
-        body: Center(
-          
-        ) 
+        body: ListView(
+          children: [
+            ListTile(
+              leading: Icon(Icons.wb_sunny),
+              title: Text('Güneş'),
+              subtitle: Text('alt başlık'),
+              trailing: Icon(Icons.arrow_right),
+              onTap: (){
+                print('Tapped');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.star),
+              title: Text('Güneş'),
+              subtitle: Text('alt başlık'),
+              trailing: Icon(Icons.arrow_right),
+              onTap: (){
+                print('Tapped');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.mobile_off),
+              title: Text('Güneş'),
+              subtitle: Text('alt başlık'),
+              trailing: Icon(Icons.arrow_right),
+              onTap: (){
+                print('Tapped');
+              },
+            ),
+            GestureDetector(
+              onTap: (){
+                print('AAAA');
+              },
+              child: Card(
+                child: SizedBox(
+                  height: 50,
+                  child: Row(
+                    children: [
+                      Text('card tasarımı'),
+                      Spacer(),
+                      Icon(Icons.more_vert),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: (){
+                print('Merhaba');
+              },
+              child: Container(
+                height: 50,
+                color: Colors.red,
+                child: Text('Merhaba'),
+              ),
+            )
+          ],
+        )
         );
   }
 }

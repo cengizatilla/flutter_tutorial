@@ -6,11 +6,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -30,14 +28,34 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool isSearch = true;
+  
+  var ulkeler = ['Türkiye','Almanya','İtalya','Rusya','Çin'];
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Card Kullanımı'),
-        ),
-        body: Text(''),
-        );
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: ListView.builder(
+        itemCount: ulkeler.length,
+        itemBuilder: (context,indeks){
+          return Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: SizedBox(
+                height: 50,
+                child: Row(
+                  children: [
+                    Text(ulkeler[indeks])
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      )
+    );
   }
 }

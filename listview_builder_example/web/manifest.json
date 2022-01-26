@@ -1,6 +1,6 @@
 {
-    "name": "gridview_static",
-    "short_name": "gridview_static",
+    "name": "listview_builder_example",
+    "short_name": "listview_builder_example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
